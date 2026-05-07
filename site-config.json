@@ -1,0 +1,13 @@
+{
+  "brand": "Flavia Coman",
+  "niche": "Mentoring & coaching finanziario / Financial Empowerment Mentoring",
+  "target": "Persone ambiziose 25-45 anni, italofone, dipendenti o in transizione, che si sentono "bloccate" nel proprio percorso lavorativo. Profilo: hanno già provato corsi, libri, contenuti motivazionali ma senza risultati concreti. Sentono di "valere di più" rispetto al lavoro attuale. Non sono principianti assoluti, hanno competenze ma non sanno monetizzarle. Tendenzialmente più femminile (per via del posizionamento personal brand femminile e tono usato), ma non escludente.",
+  "tone": "Diretto, motivazionale-strategico, deciso, anti-fuffa. Linguaggio assertivo ("Niente sogni: risultati", "Il problema non sei tu"). Empatico ma non morbido. Frasi corte e d'impatto. Mix tra coaching emotivo e business pragmatico. Uso della schwa ("arrivatə") che indica attenzione inclusiva. Premium ma accessibile, non lusso freddo.",
+  "pages": "1 pagina (long-form landing page). Il sito attuale è già una single page con ancore interne (Risultati, Contattami) e funziona perché l'obiettivo unico è la prenotazione su Calendly. Non serve struttura multi-pagina per questo modello di business.",
+  "sections": "hero, problem, method (i 5 step del percorso), vision, about-story, skills, results-testimonial, consultation-card, final-cta, footer-contact",
+  "theme": "light",
+  "colorPrimary": "#D6A77A",
+  "colorSecondary": "#8C2F39",
+  "integrations": "Calendly (già usato, link diretto a calendly.com/flaviacoman/zoom), WhatsApp (numero 328 817 4058 con messaggio precompilato), Instagram (@flaviacoman_), TikTok (@flavia.coman), email (flavia@flaviacoman.com). Non c'è form di contatto, tutto convoglia su Calendly o WhatsApp.",
+  "goal": "Lead generation qualificata tramite prenotazione consulenza gratuita di 30 minuti su Zoom (Calendly). Il sito è interamente costruito per spingere verso quell'unica conversione, ripetuta 5 volte lungo la pagina."
+}

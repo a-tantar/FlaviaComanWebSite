@@ -1,0 +1,325 @@
+.hero {
+  min-height: calc(100vh - 80px);
+  margin-top: 80px;
+  background: var(--bg);
+  display: flex;
+  align-items: stretch;
+}
+
+.hero__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
+}
+
+/* ─── Image column ──────────────────────────────────────────── */
+.hero__image-col {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-top: 40px;
+}
+
+.hero__image-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 440px;
+}
+
+.hero__image-wrap::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 88%;
+  background: var(--bg-secondary);
+  border-radius: 50% 50% 0 0;
+  z-index: 0;
+}
+
+.hero__photo {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* ─── Text column ───────────────────────────────────────────── */
+.hero__text-col {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  padding: clamp(40px, 6vw, 80px) 0;
+}
+
+.hero__text-col h1 {
+  line-height: 1.12;
+}
+
+.hero__accent {
+  font-style: italic;
+  color: var(--accent-solid);
+  -webkit-text-fill-color: var(--accent-solid);
+}
+
+.hero__subtitle {
+  font-size: clamp(0.9rem, 1.3vw, 1rem);
+  line-height: 1.75;
+  color: var(--text-dim);
+  max-width: 480px;
+}
+
+.hero__subtitle strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 860px) {
+  .hero__inner {
+    grid-template-columns: 1fr;
+    padding-top: 40px;
+  }
+  .hero__image-col {
+    order: 2;
+    padding-top: 0;
+  }
+  .hero__text-col {
+    order: 1;
+    padding-bottom: 0;
+  }
+  .hero__image-wrap {
+    max-width: 320px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    min-height: auto;
+  }
+  .hero__text-col {
+    gap: 20px;
+  }
+}
+
+/* ─── Orbs ──────────────────────────────────────────────────── */
+.hero__orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(100px);
+}
+
+.hero__orb--1 {
+  width: 700px;
+  height: 700px;
+  top: -20%;
+  right: -10%;
+  background: radial-gradient(
+    circle,
+    rgba(214, 167, 122, 0.2) 0%,
+    transparent 65%
+  );
+  animation: hero-float-1 22s ease-in-out infinite alternate;
+}
+
+.hero__orb--2 {
+  width: 500px;
+  height: 500px;
+  bottom: -15%;
+  left: -5%;
+  background: radial-gradient(
+    circle,
+    rgba(140, 47, 57, 0.14) 0%,
+    transparent 65%
+  );
+  animation: hero-float-2 28s ease-in-out infinite alternate;
+}
+
+@keyframes hero-float-1 {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(-30px, 20px) scale(1.05);
+  }
+}
+@keyframes hero-float-2 {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+  to {
+    transform: translate(25px, -20px) scale(1.07);
+  }
+}
+
+/* ─── Social float ──────────────────────────────────────────── */
+.hero__social-float {
+  position: absolute;
+  right: max(24px, 3vw);
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 2;
+}
+
+.hero__social-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--card-border);
+  background: var(--card-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--text-muted);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.3s ease;
+  animation: icon-float 6s ease-in-out infinite;
+}
+
+.hero__social-icon:nth-child(2) {
+  animation-delay: -3s;
+}
+
+.hero__social-icon:hover {
+  color: var(--accent-solid);
+  border-color: var(--accent-solid);
+  transform: translateY(-3px) scale(1.08) !important;
+}
+
+@keyframes icon-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* ─── Inner content ─────────────────────────────────────────── */
+.hero__inner {
+  padding-top: clamp(90px, 14vh, 140px);
+}
+
+.hero__content {
+  max-width: 680px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.hero__content .kicker {
+  margin-bottom: 20px;
+}
+
+.hero__content h1 {
+  margin-bottom: 22px;
+}
+
+.hero__subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.1rem);
+  color: var(--text-dim);
+  line-height: 1.7;
+  max-width: 540px;
+  margin-bottom: 32px;
+}
+
+/* ─── Stats ─────────────────────────────────────────────────── */
+.hero__stats {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding: 20px 0;
+  border-top: 1px solid var(--divider);
+  border-bottom: 1px solid var(--divider);
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero__stat-value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.3rem, 2.5vw, 1.8rem);
+  letter-spacing: -0.02em;
+  background: var(--accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero__stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ─── CTAs ──────────────────────────────────────────────────── */
+.hero__ctas {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.hero__btn-primary {
+  font-size: 0.95rem;
+  padding: 15px 28px;
+}
+
+/* ─── Trust line ─────────────────────────────────────────────── */
+.hero__trust {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.hero__star {
+  color: #f59e0b;
+  font-size: 0.7rem;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero__social-float {
+    display: none;
+  }
+  .hero__stats {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__ctas {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .hero__ctas .btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
