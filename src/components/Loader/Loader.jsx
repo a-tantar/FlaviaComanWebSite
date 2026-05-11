@@ -51,9 +51,7 @@ export default function Loader() {
       <div className="loader__content">
         <div ref={logoRef} className="loader__logo">
           <span className="loader__brand">Flavia Coman</span>
-          <span className="loader__tagline">
-            Financial Empowerment Mentoring
-          </span>
+          <span className="loader__tagline">Mentor &amp; Strategist</span>
         </div>
         <div className="loader__bar-track">
           <div ref={barRef} className="loader__bar" />

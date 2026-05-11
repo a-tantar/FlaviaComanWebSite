@@ -26,13 +26,10 @@
 
 .loader__brand {
   font-family: var(--font-display);
-  font-weight: 800;
+  font-weight: 400;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
   letter-spacing: -0.02em;
-  background: var(--accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--ink);
 }
 
 .loader__tagline {
@@ -54,7 +51,7 @@
 
 .loader__bar {
   height: 100%;
-  background: var(--accent);
+  background: var(--ink);
   border-radius: 2px;
   transform-origin: left center;
   transform: scaleX(0);

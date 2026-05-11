@@ -1,424 +1,126 @@
-/* ─── Main CTA section ───────────────────────────────────────── */
+.final {
+    background: var(--ink);
+}
+
+/* ─── CTA block ───────────────────────────────────────────── */
 .final__cta {
-  background: var(--bg);
-  padding: clamp(64px, 8vw, 100px) 0;
-  border-top: 1px solid var(--divider);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .final__cta-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--pad);
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: clamp(40px, 6vw, 80px);
-  align-items: center;
-}
-
-/* ─── Calendly card ──────────────────────────────────────────── */
-.final__card {
-  background: var(--bg-secondary);
-  border-radius: 16px;
-  padding: 32px 28px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  text-align: center;
-}
-
-.final__card-avatar {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: var(--accent2);
-  color: #fff;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 4px;
-}
-
-.final__card-name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: var(--fg);
-}
-
-.final__card-role {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  font-family: var(--font-body);
-  letter-spacing: 0.04em;
-}
-
-.final__card-divider {
-  width: 100%;
-  border: none;
-  border-top: 1px solid var(--divider);
-  margin: 4px 0;
-}
-
-.final__card-detail {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: var(--fg);
-}
-
-/* ─── Text column ────────────────────────────────────────────── */
-.final__text-col {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: clamp(64px, 8vw, 120px) var(--pad);
 }
 
 .final__heading {
-  font-family: var(--font-display);
-  font-size: clamp(1.5rem, 3.5vw, 2.4rem);
-  line-height: 1.25;
-  color: var(--fg);
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(28px, 3.5vw, 48px);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: var(--paper);
+    margin-bottom: 20px;
 }
 
 .final__sub {
-  font-family: var(--font-body);
-  font-size: clamp(0.9rem, 1.3vw, 1rem);
-  color: var(--text-dim);
-  line-height: 1.7;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    color: rgba(250, 246, 239, 0.65);
+    line-height: 1.7;
+    max-width: 520px;
+    margin-bottom: 36px;
 }
 
 .final__sub strong {
-  color: var(--fg);
+    color: var(--paper);
+    font-weight: 500;
 }
 
-.final__cta-btn {
-  font-size: 1rem;
-  padding: 18px 40px;
-  letter-spacing: 0.08em;
-  align-self: flex-start;
-}
-
-/* ─── Footer ─────────────────────────────────────────────────── */
+/* ─── Footer bar ──────────────────────────────────────────── */
 .final__footer {
-  background: var(--fg);
-  color: #fff;
-  padding: clamp(40px, 6vw, 64px) 0 24px;
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 32px var(--pad);
 }
 
 .final__footer-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 0 var(--pad);
-  display: flex;
-  gap: clamp(32px, 6vw, 80px);
-  align-items: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    flex-wrap: wrap;
 }
 
 .final__footer-logo {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 }
 
-.final__logo-stack {
-  display: flex;
-  flex-direction: column;
-  line-height: 0.9;
-}
-
-.final__logo-stack span {
-  font-family: var(--font-display);
-  font-weight: 900;
-  font-size: 1.2rem;
-  letter-spacing: 0.06em;
-  color: #fff;
+.final__logo-name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: 0.95rem;
+    color: var(--paper);
 }
 
 .final__logo-sub {
-  font-family: var(--font-body);
-  font-size: 0.55rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 6px;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.06em;
+    color: rgba(250, 246, 239, 0.45);
+    text-transform: uppercase;
 }
 
-.final__footer-social {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-top: 4px;
-}
-
-.final__social-link {
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-size: 0.85rem;
-  transition: background 0.2s;
-}
-
-.final__social-link:hover {
-  background: var(--accent2);
-}
-
-.final__footer-info {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.final__footer-info-title {
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 4px;
+.final__footer-links {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
 }
 
 .final__footer-link {
-  font-family: var(--font-body);
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  transition: color 0.2s;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    color: rgba(250, 246, 239, 0.55);
+    text-decoration: none;
+    transition: color 0.2s ease;
 }
 
 .final__footer-link:hover {
-  color: var(--accent-solid);
+    color: var(--paper);
+}
+
+.final__footer-social {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.final__social-link {
+    color: rgba(250, 246, 239, 0.55);
+    font-size: 1.1rem;
+    transition: color 0.2s ease;
+    text-decoration: none;
+}
+
+.final__social-link:hover {
+    color: var(--gold);
 }
 
 .final__copyright {
-  max-width: var(--max);
-  margin: clamp(24px, 4vw, 40px) auto 0;
-  padding: 0 var(--pad);
-  font-family: var(--font-body);
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.35);
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 20px;
+    padding-top: 20px;
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    color: rgba(250, 246, 239, 0.3);
 }
 
-/* ─── Responsive ─────────────────────────────────────────────── */
-@media (max-width: 860px) {
-  .final__cta-inner {
-    grid-template-columns: 1fr;
-    max-width: 480px;
-  }
-  .final__footer-inner {
-    flex-direction: column;
-    gap: 24px;
-  }
-  .final__cta-btn {
-    align-self: stretch;
-    text-align: center;
-  }
-}
-
-/* ─── CTA content ────────────────────────────────────────────── */
-.final-cta__content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: clamp(80px, 12vh, 140px) var(--pad) clamp(40px, 6vh, 80px);
-  max-width: var(--max);
-  margin: 0 auto;
-  width: 100%;
-}
-
-.final-cta__kicker {
-  margin-bottom: 20px;
-}
-
-.final-cta__headline {
-  margin-bottom: 20px;
-}
-
-.final-cta__subtitle {
-  font-size: clamp(1rem, 1.6vw, 1.15rem);
-  color: var(--text-dim);
-  line-height: 1.65;
-  margin-bottom: 36px;
-}
-
-.final-cta__ctas {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 20px;
-}
-
-.final-cta__btn {
-  font-size: 1rem;
-  padding: 16px 32px;
-}
-
-.final-cta__trust {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 0.82rem;
-  color: var(--text-muted);
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.final-cta__star {
-  color: #f59e0b;
-  font-size: 0.72rem;
-}
-
-.final-cta__trust span {
-  margin-left: 4px;
-}
-
-/* ─── Footer ─────────────────────────────────────────────────── */
-.footer {
-  border-top: 1px solid var(--divider);
-  background: var(--bg);
-}
-
-.footer__inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 28px var(--pad);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
-}
-
-.footer__brand {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.footer__name {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 0.95rem;
-  background: var(--accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-.footer__tagline {
-  font-size: 0.72rem;
-  color: var(--text-muted);
-  letter-spacing: 0.06em;
-}
-
-.footer__email {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.8rem;
-  color: var(--text-dim);
-  transition: color 0.2s ease;
-  margin-top: 2px;
-}
-
-.footer__email:hover {
-  color: var(--accent-solid);
-}
-
-.footer__right {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
-}
-
-.footer__socials {
-  display: flex;
-  gap: 10px;
-}
-
-.footer__social {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  border: 1px solid var(--card-border);
-  background: var(--card-bg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.85rem;
-  color: var(--text-dim);
-  transition:
-    color 0.2s ease,
-    border-color 0.2s ease,
-    transform 0.2s ease;
-}
-
-.footer__social:hover {
-  color: var(--accent-solid);
-  border-color: var(--accent-solid);
-  transform: translateY(-2px);
-}
-
-.footer__social--calendly {
-  font-size: 0.65rem;
-  font-weight: 700;
-  font-family: var(--font-display);
-}
-
-.footer__legal {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.footer__separator {
-  opacity: 0.5;
-}
-
-.footer__legal-link:hover {
-  color: var(--accent-solid);
-}
-
-/* ─── Responsive ─────────────────────────────────────────────── */
-@media (max-width: 768px) {
-  .footer__inner {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-  .footer__brand {
-    align-items: center;
-  }
-  .footer__right {
-    align-items: center;
-  }
-}
-
-@media (max-width: 480px) {
-  .final-cta__ctas {
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    max-width: 320px;
-  }
-  .final-cta__ctas .btn {
-    justify-content: center;
-  }
+@media (max-width: 640px) {
+    .final__footer-inner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

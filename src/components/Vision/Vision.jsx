@@ -8,50 +8,27 @@ export default function Vision() {
   return (
     <div ref={ref} className="vision">
       <div className="vision__inner">
-        <div className="vision__image-col" data-anim>
-          <img
-            src="/images/flavia-vision.jpg"
-            alt="Flavia Coman"
-            className="vision__photo"
-            onError={(e) => {
-              e.currentTarget.style.display = "none";
-            }}
-          />
+        <div className="vision__label" data-anim>
+          Visione
         </div>
-        <div className="vision__text-col">
-          <h2 data-anim>
-            La mia visione è semplice: la libertà è un diritto. Ma va costruita.
-          </h2>
-          <p data-anim>
-            <strong>Credo che</strong> ognuno abbia la capacità di guadagnarsi
-            una libertà finanziaria vera — non per fortuna, ma grazie a metodo,
-            disciplina e chiarezza.
-          </p>
-          <p data-anim>
-            <strong>Credo che</strong> il denaro sia uno strumento. E che
-            imparare a usarlo bene sia una delle forme più potenti di rispetto
-            verso se stessi.
-          </p>
-          <p data-anim>
-            <strong>Credo che</strong> nessuno debba restare bloccato per
-            mancanza di guida. Serve qualcuno che ti mostri il percorso — non
-            che lo percorra al posto tuo.
-          </p>
-          <p data-anim>
-            Per questo esisto: per aiutare persone ambiziose che hanno già le
-            basi, ma non riescono a fare il salto.
-          </p>
-          <div data-anim>
-            <a
-              href={CALENDLY_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn btn-primary"
-            >
-              Parliamone subito!
-            </a>
-          </div>
-        </div>
+        <h2 className="vision__title" data-anim>
+          L&apos;indipendenza non è un lusso.
+          <br />
+          <em className="vision__title-em">È una decisione.</em>
+        </h2>
+        <p className="vision__body" data-anim>
+          Non ti serve un altro corso da 99€. Ti serve qualcuno che ti dica la
+          verità su dove sei e cosa fare. Una strategia, non una motivazione.
+        </p>
+        <a
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="vision__cta"
+          data-anim
+        >
+          Prenota una sessione gratuita →
+        </a>
       </div>
     </div>
   );

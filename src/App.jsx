@@ -6,13 +6,17 @@ import Hero from "./components/Hero/Hero";
 import Loader from "./components/Loader/Loader";
 import Method from "./components/Method/Method";
 import Problem from "./components/Problem/Problem";
+import ResultsTestimonial from "./components/ResultsTestimonial/ResultsTestimonial";
 import Vision from "./components/Vision/Vision";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const NAV_ITEMS = [
-  { label: "Risultati", href: "#metodo" },
-  { label: "Contattami", href: "#contatti" },
+  { label: "Metodo", href: "#metodo" },
+  { label: "Visione", href: "#visione" },
+  { label: "Chi sono", href: "#chisono" },
+  { label: "Risultati", href: "#risultati" },
+  { label: "Contatti", href: "#contatti" },
 ];
 
 function HomePage() {
@@ -32,7 +36,10 @@ function HomePage() {
         <section id="visione">
           <Vision />
         </section>
-        <section id="contatti">
+        <section id="chisono">
+          <ResultsTestimonial />
+        </section>
+        <section id="risultati">
           <FinalCTA />
         </section>
       </main>

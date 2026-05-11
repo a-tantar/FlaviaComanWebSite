@@ -1,6 +1,8 @@
 ﻿import { useEffect, useState } from "react";
 import "./Header.css";
 
+const CALENDLY_URL = "https://calendly.com/flaviacoman/zoom";
+
 export default function Header({ navItems }) {
   const [scrolled, setScrolled] = useState(false);
   useEffect(() => {
@@ -12,11 +14,7 @@ export default function Header({ navItems }) {
     <header className={"header" + (scrolled ? " header--scrolled" : "")}>
       <div className="header__inner">
         <a href="/" className="header__logo" aria-label="Flavia Coman - Home">
-          <div className="header__logo-stack">
-            <span className="header__logo-line1">FLAVIA</span>
-            <span className="header__logo-line2">COMAN</span>
-          </div>
-          <span className="header__logo-sub">Financial Empowerment Mentor</span>
+          Flavia Coman
         </a>
         <nav className="header__nav" aria-label="Navigazione principale">
           {navItems.map(({ label, href }) => (
@@ -25,6 +23,14 @@ export default function Header({ navItems }) {
             </a>
           ))}
         </nav>
+        <a
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-outline btn-sm header__cta"
+        >
+          Prenota call
+        </a>
       </div>
     </header>
   );
