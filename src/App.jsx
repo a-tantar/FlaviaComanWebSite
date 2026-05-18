@@ -5,7 +5,6 @@ import CookieBanner from "./components/CookieBanner/CookieBanner";
 import FinalCTA from "./components/FinalCTA/FinalCTA";
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
-import Loader from "./components/Loader/Loader";
 import Method from "./components/Method/Method";
 import Problem from "./components/Problem/Problem";
 import ResultsTestimonial from "./components/ResultsTestimonial/ResultsTestimonial";
@@ -60,7 +59,6 @@ function HomePage() {
 export default function App() {
   return (
     <BrowserRouter>
-      <Loader />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />

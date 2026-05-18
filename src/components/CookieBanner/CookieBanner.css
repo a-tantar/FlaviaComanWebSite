@@ -50,8 +50,11 @@
 }
 
 .cookie__btn--accept {
-  background: var(--accent);
+  background: var(--bordeaux);
   color: #fff;
+}
+.cookie__btn--accept:hover {
+  background: var(--bordeaux-deep);
 }
 
 @media (max-width: 560px) {
