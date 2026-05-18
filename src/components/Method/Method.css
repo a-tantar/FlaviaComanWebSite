@@ -1,252 +1,319 @@
 .method {
-    background: var(--paper);
-    border-bottom: 1px solid var(--rule);
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  overflow: hidden;
 }
 
 .method__inner {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: clamp(64px, 8vw, 120px) var(--pad);
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(64px, 8vw, 120px) var(--pad);
 }
 
 .method__label {
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 16px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
 }
 
 .method__title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(32px, 4vw, 52px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 12px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 52px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 12px;
 }
 
 .method__title-em {
-    font-style: italic;
-    color: var(--ink);
+  font-style: italic;
+  color: var(--ink);
 }
 
 .method__subtitle {
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    color: var(--ink-soft);
-    margin-bottom: 56px;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 56px;
 }
 
 /* Rows: big number | category+title | text | phase */
 .method__table {
-    border-top: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);
 }
 
 .method__row {
-    display: grid;
-    grid-template-columns: 80px 180px 1fr 80px;
-    gap: 0 32px;
-    padding: 28px 0;
-    border-bottom: 1px solid var(--rule);
-    align-items: start;
+  display: grid;
+  grid-template-columns: 80px 180px 1fr 80px;
+  gap: 0 32px;
+  padding: 28px 16px;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
+  transition:
+    background 0.22s ease,
+    border-left-color 0.22s ease;
+  border-left: 3px solid transparent;
+  margin-left: -16px;
+  margin-right: -16px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.method__row:hover {
+  background: var(--cream);
+  border-left-color: var(--bordeaux);
 }
 
 .method__row-num {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(2.5rem, 4vw, 4rem);
-    line-height: 1;
-    letter-spacing: -0.04em;
-    color: var(--ink);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--bordeaux);
+  opacity: 0.15;
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease;
+  transform: translateY(-6px);
+}
+
+.method__row:hover .method__row-num {
+  color: var(--bordeaux);
+  opacity: 0.8;
 }
 
 .method__row-mid {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-    padding-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 4px;
 }
 
 .method__row-category {
-    font-family: var(--font-body);
-    font-size: 0.6rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
 }
 
 .method__row-title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 1.05rem;
-    color: var(--ink);
-    line-height: 1.3;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.05rem;
+  color: var(--ink);
+  line-height: 1.3;
 }
 
 .method__row-text {
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    line-height: 1.65;
-    color: var(--ink-soft);
-    padding-top: 4px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  padding-top: 4px;
 }
 
 .method__row-phase {
-    font-family: var(--font-body);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    text-align: right;
-    padding-top: 8px;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  text-align: right;
+  padding-top: 8px;
 }
 
 @media (max-width: 768px) {
-    .method__row {
-        grid-template-columns: 48px 1fr;
-        grid-template-rows: auto auto;
-    }
+  .method__row {
+    grid-template-columns: 48px 1fr;
+    grid-template-rows: auto auto;
+  }
 
-    .method__row-num {
-        font-size: 2rem;
-    }
+  .method__row-num {
+    font-size: 2rem;
+  }
 
-    .method__row-mid {
-        padding-top: 2px;
-    }
+  .method__row-mid {
+    padding-top: 2px;
+  }
 
-    .method__row-text {
-        grid-column: 1 / -1;
-    }
+  .method__row-text {
+    grid-column: 1 / -1;
+  }
 
-    .method__row-phase {
-        grid-column: 1 / -1;
-        text-align: left;
-    }
+  .method__row-phase {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
 }
 
 .method__inner {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: clamp(64px, 8vw, 120px) var(--pad);
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(64px, 8vw, 120px) var(--pad);
 }
 
 .method__label {
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-    margin-bottom: 24px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin-bottom: 24px;
 }
 
 .method__title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(32px, 4vw, 56px);
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    color: var(--ink);
-    margin-bottom: 16px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 16px;
 }
 
 .method__subtitle {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--ink-soft);
-    margin-bottom: 60px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink-soft);
+  margin-bottom: 60px;
 }
 
 /* ─── Steps table ─────────────────────────────────────────── */
 .method__table {
-    border-top: 1px solid var(--rule);
-    margin-bottom: 80px;
+  border-top: 1px solid var(--rule);
+  margin-bottom: 80px;
 }
 
 .method__row {
-    display: grid;
-    grid-template-columns: 80px 120px 1fr;
-    gap: 32px;
-    padding: 28px 0;
-    border-bottom: 1px solid var(--rule);
-    align-items: start;
+  display: grid;
+  grid-template-columns: 80px 120px 1fr;
+  gap: 32px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--rule);
+  align-items: start;
 }
 
 .method__row-phase {
-    font-family: var(--font-body);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold-deep);
-    padding-top: 4px;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+  padding-top: 4px;
 }
 
 .method__row-category {
-    font-family: var(--font-display);
-    font-weight: 500;
-    font-size: 0.875rem;
-    color: var(--ink-soft);
-    padding-top: 2px;
-    font-style: italic;
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--ink-soft);
+  padding-top: 2px;
+  font-style: italic;
 }
 
 .method__row-title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: 1.1rem;
-    color: var(--ink);
-    margin-bottom: 8px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-bottom: 8px;
 }
 
 .method__row-text {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    line-height: 1.65;
-    color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
 }
 
 /* ─── Footer ──────────────────────────────────────────────── */
 .method__footer {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
 }
 
 .method__footer-title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(28px, 3.5vw, 48px);
-    line-height: 1.2;
-    color: var(--ink);
-    margin-bottom: 20px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(28px, 3.5vw, 48px);
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 20px;
 }
 
 .method__footer-title em {
-    font-style: italic;
-    color: var(--bordeaux);
+  font-style: italic;
+  color: var(--bordeaux);
 }
 
 .method__footer-sub {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    color: var(--ink-soft);
-    max-width: 520px;
-    line-height: 1.7;
-    margin-bottom: 32px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: var(--ink-soft);
+  max-width: 520px;
+  line-height: 1.7;
+  margin-bottom: 32px;
 }
 
 @media (max-width: 640px) {
-    .method__row {
-        grid-template-columns: 1fr;
-        gap: 8px;
-        padding: 20px 0;
-    }
+  .method__row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 20px 0;
+  }
+}
+
+/* ─── Background depth ──────────────────────────────────── */
+/* Warm ambient orbs — two-point light from top-right + bottom-left */
+.method::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      ellipse 65% 55% at 95% -5%,
+      rgba(214, 167, 122, 0.18) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 55% 45% at -5% 105%,
+      rgba(214, 167, 122, 0.11) 0%,
+      transparent 55%
+    );
+}
+
+/* Diagonal-hatch texture — editorial / financial paper feel */
+.method::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 22px,
+    rgba(26, 22, 19, 0.028) 22px,
+    rgba(26, 22, 19, 0.028) 23px
+  );
+}
+
+.method .method__inner {
+  position: relative;
+  z-index: 1;
 }

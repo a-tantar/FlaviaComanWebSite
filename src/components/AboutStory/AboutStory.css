@@ -1,10 +1,12 @@
 .about {
-  min-height: 100vh;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
-.about__inner {
+.about .about__inner {
+  display: flex;
   flex-direction: row;
   gap: clamp(40px, 8vw, 96px);
   align-items: center;
@@ -57,69 +59,58 @@
   font-size: 0.9rem;
 }
 
-/* ─── Visual / Photo ─────────────────────────────────────────── */
+/* ─── Visual / Photo ──────────────────────────────────────────── */
 .about__visual {
   flex: 0 0 auto;
-  width: clamp(240px, 30vw, 360px);
+  width: clamp(240px, 30vw, 380px);
 }
 
 .about__photo-wrap {
   position: relative;
 }
 
-.about__photo-placeholder {
+.about__photo-img {
   width: 100%;
-  aspect-ratio: 3/4;
-  border-radius: 24px;
-  background: linear-gradient(
-    135deg,
-    var(--accent-tint) 0%,
-    var(--accent2-glow) 100%
-  );
-  border: 2px solid var(--card-border);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.about__photo-initials {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(3rem, 8vw, 5rem);
-  background: var(--accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  opacity: 0.5;
-}
-
-/* Swap placeholder for real image when available */
-.about__photo-placeholder:has(img) .about__photo-initials {
-  display: none;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  aspect-ratio: 3 / 4;
+  filter: grayscale(12%);
 }
 
 .about__photo-badge {
   position: absolute;
-  bottom: -16px;
-  right: -16px;
-  background: var(--bg);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius);
-  padding: 12px 16px;
-  box-shadow: var(--card-shadow);
+  bottom: 16px;
+  left: -16px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  padding: 11px 16px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  box-shadow: 0 2px 16px rgba(26, 22, 19, 0.08);
 }
 
-.about__photo-badge-text {
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: var(--fg);
-  line-height: 1.4;
+.about__cred-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  flex-shrink: 0;
+}
+
+.about__cred-badge-text {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
 }
 
 /* ─── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 900px) {
-  .about__inner {
+  .about .about__inner {
     flex-direction: column-reverse;
   }
   .about__visual {
@@ -129,4 +120,45 @@
   .about__text {
     max-width: 100%;
   }
+}
+
+/* ─── Background depth ──────────────────────────────────── */
+/* Gold top-right + gold bottom-left warm orbs */
+.about::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(
+      ellipse 65% 55% at 100% 0%,
+      rgba(214, 167, 122, 0.16) 0%,
+      transparent 58%
+    ),
+    radial-gradient(
+      ellipse 45% 40% at 0% 100%,
+      rgba(214, 167, 122, 0.09) 0%,
+      transparent 55%
+    );
+}
+
+/* Dot grid texture — warm / personal feel */
+.about::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(26, 22, 19, 0.058) 1px,
+    transparent 1px
+  );
+  background-size: 26px 26px;
+}
+
+.about .about__inner {
+  position: relative;
+  z-index: 1;
 }

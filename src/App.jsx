@@ -1,4 +1,6 @@
 ﻿import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AboutStory from "./components/AboutStory/AboutStory";
+import ConsultationCard from "./components/ConsultationCard/ConsultationCard";
 import CookieBanner from "./components/CookieBanner/CookieBanner";
 import FinalCTA from "./components/FinalCTA/FinalCTA";
 import Header from "./components/Header/Header";
@@ -7,16 +9,17 @@ import Loader from "./components/Loader/Loader";
 import Method from "./components/Method/Method";
 import Problem from "./components/Problem/Problem";
 import ResultsTestimonial from "./components/ResultsTestimonial/ResultsTestimonial";
+import Skills from "./components/Skills/Skills";
 import Vision from "./components/Vision/Vision";
 import NotFound from "./pages/NotFound";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 
 const NAV_ITEMS = [
-  { label: "Metodo", href: "#metodo" },
-  { label: "Visione", href: "#visione" },
+  { label: "Il Metodo", href: "#metodo" },
   { label: "Chi sono", href: "#chisono" },
+  { label: "Competenze", href: "#competenze" },
   { label: "Risultati", href: "#risultati" },
-  { label: "Contatti", href: "#contatti" },
+  { label: "Consulenza", href: "#consulenza" },
 ];
 
 function HomePage() {
@@ -37,11 +40,18 @@ function HomePage() {
           <Vision />
         </section>
         <section id="chisono">
-          <ResultsTestimonial />
+          <AboutStory />
+        </section>
+        <section id="competenze">
+          <Skills />
         </section>
         <section id="risultati">
-          <FinalCTA />
+          <ResultsTestimonial />
         </section>
+        <section id="consulenza">
+          <ConsultationCard />
+        </section>
+        <FinalCTA />
       </main>
     </>
   );

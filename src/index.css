@@ -4,15 +4,15 @@
 /* ─── DESIGN TOKENS ───────────────────────────────────────────────────── */
 :root {
   /* Palette */
-  --paper: #FAF6EF;
-  --cream: #F5EFE6;
-  --ink: #1A1613;
-  --ink-2: #2C2520;
-  --ink-soft: #5C534B;
-  --gold: #D6A77A;
-  --gold-deep: #B98855;
-  --bordeaux: #8C2F39;
-  --bordeaux-deep: #6E222B;
+  --paper: #faf6ef;
+  --cream: #f5efe6;
+  --ink: #1a1613;
+  --ink-2: #2c2520;
+  --ink-soft: #5c534b;
+  --gold: #d6a77a;
+  --gold-deep: #b98855;
+  --bordeaux: #8c2f39;
+  --bordeaux-deep: #6e222b;
   --rule: rgba(26, 22, 19, 0.125);
   --rule-soft: rgba(26, 22, 19, 0.065);
 
@@ -30,11 +30,18 @@
   --card-shadow: none;
   --divider: var(--rule);
   --divider-strong: rgba(26, 22, 19, 0.2);
-  --header-bg: rgba(250, 246, 239, 0.92);
+  --header-bg: rgba(250, 246, 239, 0.96);
+
+  /* Glows */
+  --glow-gold:
+    0 0 0 3px rgba(214, 167, 122, 0.25), 0 8px 32px rgba(214, 167, 122, 0.22);
+  --glow-bordeaux:
+    0 0 0 3px rgba(140, 47, 57, 0.2), 0 8px 32px rgba(140, 47, 57, 0.28);
 
   /* Typography */
   --font-display: "Fraunces Variable", Georgia, serif;
-  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --font-body:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --font-serif: "Fraunces Variable", Georgia, serif;
 
   /* Layout */
@@ -42,6 +49,47 @@
   --max: 1140px;
   --radius: 0px;
   --radius-lg: 2px;
+}
+
+/* ─── GLOBAL ANIMATIONS ───────────────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 4px 24px rgba(140, 47, 57, 0.3);
+  }
+  50% {
+    box-shadow:
+      0 4px 40px rgba(140, 47, 57, 0.55),
+      0 0 0 6px rgba(140, 47, 57, 0.12);
+  }
+}
+
+@keyframes ticker-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
 }
 
 /* ─── RESET ───────────────────────────────────────────────────────────── */
@@ -148,7 +196,258 @@ em {
   letter-spacing: 0.01em;
   cursor: pointer;
   border: none;
-  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    border-color 0.22s ease,
+    box-shadow 0.22s ease,
+    transform 0.18s ease;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+/* Outlined */
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+}
+
+.btn-outline:hover {
+  background: var(--ink);
+  color: var(--paper);
+  transform: translateY(-1px);
+}
+
+/* Filled bordeaux — with glow pulse */
+.btn-primary {
+  background: var(--bordeaux);
+  color: #fff;
+  border: none;
+  border-radius: 0;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  font-size: 0.9rem;
+  padding: 15px 36px;
+  box-shadow: 0 4px 24px rgba(140, 47, 57, 0.3);
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.btn-primary:hover {
+  background: var(--bordeaux-deep);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(140, 47, 57, 0.45);
+  animation: none;
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Small nav button */
+.btn-sm {
+  padding: 7px 16px;
+  font-size: 0.8rem;
+}
+
+/* ─── KICKER LABEL ────────────────────────────────────────────────────── */
+.kicker {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+  width: fit-content;
+}
+
+.kicker-dot {
+  display: none;
+}
+
+/* ─── SECTION INNER ───────────────────────────────────────────────────── */
+.section-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(40px, 5vw, 80px) var(--pad);
+  display: flex;
+  flex-direction: column;
+}
+
+.section-header {
+  margin-bottom: clamp(18px, 3vh, 36px);
+}
+
+.section-header .kicker {
+  margin-bottom: 14px;
+}
+
+/* ─── CARD BASE ───────────────────────────────────────────────────────── */
+.card {
+  background: var(--cream);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  padding: clamp(20px, 2.5vw, 32px);
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    background 0.22s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(26, 22, 19, 0.09);
+}
+
+/* ─── SCROLLBAR ───────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--rule);
+  border-radius: 2px;
+}
+
+/* ─── SELECTION ───────────────────────────────────────────────────────── */
+::selection {
+  background: rgba(214, 167, 122, 0.35);
+  color: var(--ink);
+}
+
+/* ─── RULE DIVIDER ────────────────────────────────────────────────────── */
+.rule {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 0;
+}
+
+/* ─── GRAIN TEXTURE ───────────────────────────────────────────────────── */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.032;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 180px 180px;
+}
+
+/* ─── RESET ───────────────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font: inherit;
+}
+
+/* ─── TYPOGRAPHY ──────────────────────────────────────────────────────── */
+h1 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(40px, 6vw, 80px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(26px, 3.5vw, 52px);
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  line-height: 1.4;
+  color: var(--ink);
+}
+
+p {
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+em {
+  font-style: italic;
+  color: var(--bordeaux);
+}
+
+.accent-text {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--gold-deep);
+}
+
+/* ─── BUTTONS ─────────────────────────────────────────────────────────── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 28px;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  border: none;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
   white-space: nowrap;
   text-decoration: none;
 }
@@ -206,13 +505,13 @@ em {
 .section-inner {
   max-width: var(--max);
   margin: 0 auto;
-  padding: clamp(64px, 8vw, 120px) var(--pad);
+  padding: clamp(40px, 5vw, 80px) var(--pad);
   display: flex;
   flex-direction: column;
 }
 
 .section-header {
-  margin-bottom: clamp(28px, 4.5vh, 56px);
+  margin-bottom: clamp(18px, 3vh, 36px);
 }
 
 .section-header .kicker {

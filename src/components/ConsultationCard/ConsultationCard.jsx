@@ -6,18 +6,20 @@ import {
   faVideo,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
+import { PopupModal } from "react-calendly";
 import { useSectionAnim } from "../../hooks/useSectionAnim";
 import "./ConsultationCard.css";
 
 const CALENDLY_URL = "https://calendly.com/flaviacoman/zoom";
 const WHATSAPP_URL =
-  "https://wa.me/393288174058?text=Ciao%20Flavia!%20Vorrei%20prenotare%20una%20consulenza%20gratuita.";
+  "https://wa.me/393288174058?text=Ciao%20Flavia!%20Sono%20interessatə%20al%20coaching%20finanziario%20e%20vorrei%20prenotare%20una%20consulenza%20gratuita.";
 
 const WHAT_YOU_GET = [
-  "Analizziamo la tua situazione attuale",
-  "Identifichiamo i principali blocchi",
-  "Ti spiego come funziona il percorso",
-  "Rispondi a tutte le tue domande",
+  "Mi dici dove sei oggi e dove vuoi essere tra un anno",
+  "Ti do una lettura onesta della tua situazione, senza filtri né edulcoranti",
+  "Capiamo insieme se questo percorso è giusto per te",
+  "Zero pressione. Zero vendita forzata. Parola.",
 ];
 
 const META = [
@@ -28,6 +30,7 @@ const META = [
 
 export default function ConsultationCard({ isActive, isDesktop }) {
   const ref = useSectionAnim(isActive, isDesktop);
+  const [open, setOpen] = useState(false);
 
   return (
     <div ref={ref} className="consultation">
@@ -38,13 +41,15 @@ export default function ConsultationCard({ isActive, isDesktop }) {
             Inizia qui
           </div>
           <h2>
-            Inizia con una
+            Una conversazione.
             <br />
-            <em>consulenza gratuita</em>
+            <em>Poi decidi tu.</em>
           </h2>
           <p className="consultation__desc">
-            30 minuti su Zoom. Nessun impegno. Analizziamo la tua situazione e
-            capisci subito se il percorso fa per te.
+            Non è una presentazione commerciale. È una diagnosi onesta: mi dici
+            dove sei, io ti dico cosa vedo e cosa si può fare. Se non fa per te,
+            te lo dico io per prima, senza imbarazzo e senza perdere il tuo
+            tempo.
           </p>
 
           <div className="consultation__meta">
@@ -61,7 +66,9 @@ export default function ConsultationCard({ isActive, isDesktop }) {
         </div>
 
         <div className="consultation__card card" data-anim>
-          <h3 className="consultation__card-title">Cosa succede nella call</h3>
+          <h3 className="consultation__card-title">
+            Cosa succede durante la call
+          </h3>
           <ul className="consultation__list">
             {WHAT_YOU_GET.map((item) => (
               <li key={item} className="consultation__list-item">
@@ -76,15 +83,13 @@ export default function ConsultationCard({ isActive, isDesktop }) {
 
           <div className="consultation__divider" />
 
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
+          <button
+            onClick={() => setOpen(true)}
             className="btn btn-primary consultation__btn-main"
           >
             Prenota su Calendly
             <FontAwesomeIcon icon={faArrowRight} />
-          </a>
+          </button>
 
           <div className="consultation__or">
             <span>oppure</span>
@@ -104,6 +109,12 @@ export default function ConsultationCard({ isActive, isDesktop }) {
           </p>
         </div>
       </div>
+      <PopupModal
+        url={CALENDLY_URL}
+        open={open}
+        onModalClose={() => setOpen(false)}
+        rootElement={document.body}
+      />
     </div>
   );
 }

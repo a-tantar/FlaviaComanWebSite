@@ -1,10 +1,10 @@
 import {
-  faArrowRightArrowLeft,
   faBullhorn,
-  faCalendarCheck,
+  faChartLine,
   faCoins,
+  faGlobe,
   faHandshake,
-  faPiggyBank,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSectionAnim } from "../../hooks/useSectionAnim";
@@ -12,34 +12,34 @@ import "./Skills.css";
 
 const SKILLS = [
   {
-    icon: faHandshake,
-    title: "Negoziazione Stipendiale",
-    desc: "Tecniche pratiche per chiedere un aumento o rinegoziare il contratto con sicurezza e risultati concreti.",
+    icon: faUsers,
+    title: "Leadership & Duplicazione",
+    desc: "Come costruire un team nel settore finanziario che funziona senza che tu debba gestire tutto. Il tuo tempo libero inizia qui, non alla fine del percorso.",
   },
   {
-    icon: faBullhorn,
-    title: "Personal Branding",
-    desc: "Come posizionarti nel mercato: LinkedIn, comunicazione del valore, presenza digitale che converte.",
-  },
-  {
-    icon: faArrowRightArrowLeft,
-    title: "Transizione di Carriera",
-    desc: "Strategia su misura per cambiare settore, ruolo o modalità lavorativa senza perdere reddito.",
-  },
-  {
-    icon: faPiggyBank,
-    title: "Mindset Finanziario",
-    desc: "Lavoro sulle credenze limitanti legate al denaro e al proprio valore che ti impediscono di chiedere di più.",
+    icon: faChartLine,
+    title: "Investire con Intelligenza",
+    desc: "Diversificazione, ETF, prodotti accessibili. Non per diventare un trader: per far lavorare il tuo denaro mentre tu fai altro.",
   },
   {
     icon: faCoins,
-    title: "Freelancing & Tariffe",
-    desc: `Come strutturare l'offerta, comunicare il valore e negoziare con i clienti per tariffe che riflettono le competenze.`,
+    title: "Reddito Ricorrente",
+    desc: "Da singola transazione a flusso continuo. Costruiamo insieme il sistema che ti paga anche quando sei offline.",
   },
   {
-    icon: faCalendarCheck,
-    title: "Career Planning",
-    desc: `Piano d'azione a 6-12 mesi con obiettivi misurabili, milestone chiare e accountability reale.`,
+    icon: faHandshake,
+    title: "Consulenza che Converte",
+    desc: "Comprendi i bisogni reali del cliente. Proponi soluzioni con autorità. Chiudi senza dover ‘vendere’ nel senso che tutti odiano.",
+  },
+  {
+    icon: faBullhorn,
+    title: "Presenza Digitale che Attrae",
+    desc: "Su Instagram, TikTok e LinkedIn diventi il punto di riferimento che le persone giuste cercano già. Basta cold calling.",
+  },
+  {
+    icon: faGlobe,
+    title: "Acquisizione & Chiusura Etica",
+    desc: "Script che funzionano, gestione delle obiezioni, chiusura senza pressione. Converti conversazioni in clienti e collaboratori reali.",
   },
 ];
 
@@ -52,10 +52,10 @@ export default function Skills({ isActive, isDesktop }) {
         <div className="section-header">
           <div className="kicker" data-anim>
             <span className="kicker-dot" />
-            Le competenze
+            L&apos;arsenale
           </div>
           <h2 data-anim>
-            Su cosa lavoriamo <em>insieme</em>
+            Le sei leve che costruiscono <em>indipendenza</em>
           </h2>
         </div>
 

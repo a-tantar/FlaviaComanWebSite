@@ -5,37 +5,37 @@ const STEPS = [
   {
     num: "01",
     phase: "SETT. 1",
-    category: "DIAGNOSI",
-    title: "Posizionamento attuale",
-    text: "Mappiamo dove sei davvero — competenze, entrate, vincoli, e ciò che ti tiene ferm*.",
+    category: "VALUTAZIONE",
+    title: "Analisi del tuo profilo finanziario",
+    text: "Mappiamo le tue competenze, la tua rete professionale e il tuo posizionamento ideale nel mercato della consulenza finanziaria e degli investimenti.",
   },
   {
     num: "02",
     phase: "SETT. 2",
-    category: "VISIONE",
-    title: "Obiettivo a 12 mesi",
-    text: "Definiamo un risultato finanziario concreto, misurabile, non un\u2019aspirazione vaga.",
+    category: "FORMAZIONE",
+    title: "Fondamenta di consulenza finanziaria",
+    text: "Ti fornisco le basi solide: prodotti finanziari, investimenti, linguaggio del settore. Parli con autorevolezza sin dall'inizio.",
   },
   {
     num: "03",
-    phase: "SETT. 3\u20134",
-    category: "STRATEGIA",
-    title: "Leva personale",
-    text: "Identifichiamo la leva che monetizza ciò che già sai fare — senza rivoluzioni inutili.",
+    phase: "SETT. 3–4",
+    category: "ACQUISIZIONE",
+    title: "Clienti e relazioni professionali",
+    text: "Definiamo il tuo sistema di acquisizione, le tue prime conversazioni efficaci e come costruire relazioni professionali solide e durature.",
   },
   {
     num: "04",
     phase: "MESE 2",
-    category: "ESECUZIONE",
-    title: "Piano operativo",
-    text: "Costruiamo un sistema di azioni settimanali, con metriche e revisioni.",
+    category: "CRESCITA",
+    title: "Scalare la tua attività",
+    text: "Costruiamo un sistema replicabile che ti permette di crescere in autonomia, delegare con fiducia e far lavorare il sistema per te.",
   },
   {
     num: "05",
     phase: "MESE 3+",
-    category: "INDIPENDENZA",
-    title: "Consolidamento",
-    text: "Trasformiamo i primi risultati in una struttura di entrate sostenibile e replicabile.",
+    category: "RENDITA PASSIVA",
+    title: "Investimenti e libertà",
+    text: "Trasformiamo i ricavi ricorrenti e le commissioni in un portafoglio diversificato. Da professionista finanziario a persona economicamente libera.",
   },
 ];
 
@@ -45,12 +45,16 @@ export default function Method() {
     <div ref={ref} className="method">
       <div className="method__inner">
         <div className="method__header" data-anim>
-          <div className="method__label">Il metodo · 5 step</div>
+          <div className="method__label">Il metodo · 5 movimenti</div>
           <h2 className="method__title">
-            Cinque step. <em className="method__title-em">Zero scorciatoie.</em>
+            Non è un corso.{" "}
+            <em className="method__title-em">
+              È l&apos;ingegneria della tua indipendenza.
+            </em>
           </h2>
           <p className="method__subtitle">
-            Un percorso costruito su strategia, non su motivazione.
+            Niente teoria vuota. Ogni step ha un risultato misurabile, e io sono
+            lì per assicurarmi che lo raggiungi davvero.
           </p>
         </div>
 

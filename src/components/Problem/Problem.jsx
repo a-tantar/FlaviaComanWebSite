@@ -2,9 +2,9 @@
 import "./Problem.css";
 
 const SYMPTOMS = [
-  "Senti che il tuo stipendio non rispecchia il tuo valore.",
-  "Hai competenze, ma non sai come monetizzarle davvero.",
-  "Sei stanc* di seguire chi vende sogni, e non metodo.",
+  "Sai che il tuo stipendio non basta. Ma non sai da dove cominciare davvero.",
+  "Hai letto libri, guardato video, seguito guru online. Sei ancora al punto di partenza.",
+  "Il settore finanziario ti attira, ma ti sembra un mondo chiuso, riservato ad altri.",
 ];
 
 export default function Problem() {
@@ -18,22 +18,26 @@ export default function Problem() {
         <div className="problem__layout">
           <div className="problem__title-col" data-anim>
             <h2 className="problem__title">
-              Il problema non sei tu. È che nessuno ti ha mai dato una{" "}
-              <em className="problem__title-em">strategia.</em>
+              Non è una questione di impegno.{" "}
+              <em className="problem__title-em">
+                È una questione di direzione.
+              </em>
             </h2>
           </div>
           <div className="problem__body-col" data-anim>
             <p className="problem__body">
-              Il problema non sei tu. È che nessuno ti ha mai dato una
-              strategia. Solo informazioni sparse, promesse, e l&apos;ennesimo
-              PDF che resta nei download.
+              La maggior parte delle persone che vengono da me non ha un
+              problema di motivazione. Ha un problema di metodo. Non sa come
+              entrare nel settore finanziario, non sa come parlare con un
+              cliente, non sa come costruire qualcosa che continua a funzionare
+              anche quando smette di lavorare. Io sì. E te lo insegno.
             </p>
           </div>
         </div>
         <div className="problem__cards" data-anim>
           {SYMPTOMS.map((s, i) => (
             <div key={i} className="problem__card">
-              <div className="problem__card-label">SINTOMO 0{i + 1}</div>
+              <div className="problem__card-label">BLOCCO 0{i + 1}</div>
               <p className="problem__card-text">{s}</p>
             </div>
           ))}

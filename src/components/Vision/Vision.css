@@ -1,52 +1,358 @@
 .vision {
-    background: var(--bordeaux-deep);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--bordeaux-deep);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Inner: stacked flex ────────────────────────── */
+.vision__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(56px, 7vw, 100px) var(--pad);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 4.5vw, 56px);
+}
+
+/* ─── Label row with extending horizontal rule ──── */
+.vision__label-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.vision__label-rule {
+  flex: 1;
+  height: 1px;
+  background: rgba(250, 246, 239, 0.18);
+  display: block;
+}
+
+/* ─── Main: large title left · SVG right ───────── */
+.vision__main {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: clamp(40px, 6vw, 80px);
+  align-items: center;
+}
+
+/* ─── Bottom strip: body left · CTA right ──────── */
+.vision__foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(24px, 4vw, 56px);
+  padding-top: clamp(24px, 3.5vw, 40px);
+  border-top: 1px solid rgba(250, 246, 239, 0.12);
+  flex-wrap: wrap;
+}
+
+/* ─── Text column (body in foot strip) ────────── */
+.vision__text {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.vision__label {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 239, 0.45);
+  white-space: nowrap;
+  margin-bottom: 0;
+}
+
+.vision__title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(32px, 4.2vw, 58px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  margin-bottom: 0;
+}
+
+.vision__title-em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.vision__body {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(250, 246, 239, 0.6);
+  max-width: 500px;
+  margin-bottom: 0;
+}
+
+.vision__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--paper);
+  text-decoration: none;
+  background: rgba(214, 167, 122, 0.18);
+  border: 1px solid rgba(214, 167, 122, 0.4);
+  padding: 14px 32px;
+  letter-spacing: 0.03em;
+  width: fit-content;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
+}
+
+.vision__cta:hover {
+  background: var(--gold);
+  color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(214, 167, 122, 0.35);
+}
+
+/* ─── Schema column ──────────────────────────────────────── */
+.vision__schema {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vision__schema-svg {
+  width: 100%;
+  max-width: 480px;
+  min-height: 360px;
+  height: auto;
+  overflow: visible;
+}
+
+/* ─── Schema animations ──────────────────────────────────── */
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse-ring {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.25;
+  }
+}
+
+@keyframes draw-conn {
+  from {
+    stroke-dashoffset: 26;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes node-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.65);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.vision__orbit {
+  transform-origin: 160px 150px;
+  animation: orbit-spin 24s linear infinite;
+}
+
+.vision__pulse-a {
+  transform-origin: 160px 150px;
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
+.vision__pulse-b {
+  transform-origin: 160px 150px;
+  animation: pulse-ring 3s ease-in-out infinite 1.5s;
+}
+
+.vision__conn {
+  stroke-dashoffset: 26;
+  animation: draw-conn 0.7s ease forwards;
+}
+
+.vision__conn--1 {
+  animation-delay: 0.3s;
+}
+
+.vision__conn--2 {
+  animation-delay: 0.65s;
+}
+
+.vision__conn--3 {
+  animation-delay: 1s;
+}
+
+.vision__node {
+  opacity: 0;
+  animation: node-appear 0.6s ease forwards;
+}
+
+.vision__node--1 {
+  transform-origin: 160px 46px;
+  animation-delay: 0.4s;
+}
+
+.vision__node--2 {
+  transform-origin: 251px 205px;
+  animation-delay: 0.8s;
+}
+
+.vision__node--3 {
+  transform-origin: 69px 205px;
+  animation-delay: 1.2s;
+}
+
+/* ─── SVG Typography ─────────────────────────────────────── */
+.vision__center-title {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 400;
+  fill: rgba(214, 167, 122, 1);
+  letter-spacing: -0.01em;
+}
+
+.vision__center-sub {
+  font-family: var(--font-body);
+  font-size: 7px;
+  font-weight: 400;
+  fill: rgba(250, 246, 239, 0.45);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.vision__node-title {
+  font-family: var(--font-body);
+  font-size: 7px;
+  font-weight: 700;
+  fill: rgba(250, 246, 239, 0.88);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.vision__node-sub {
+  font-family: var(--font-body);
+  font-size: 6.5px;
+  fill: rgba(250, 246, 239, 0.42);
+  letter-spacing: 0.05em;
+}
+
+/* ─── Responsive ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .vision__main {
+    grid-template-columns: 1fr;
+  }
+
+  .vision__schema {
+    order: -1;
+  }
+
+  .vision__schema-svg {
+    max-width: 240px;
+    margin: 0 auto;
+  }
+
+  .vision__foot {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.vision::before {
+  content: "“";
+  position: absolute;
+  top: -40px;
+  right: clamp(20px, 6vw, 100px);
+  font-family: var(--font-display);
+  font-size: clamp(200px, 22vw, 340px);
+  line-height: 1;
+  color: rgba(250, 246, 239, 0.04);
+  pointer-events: none;
+  user-select: none;
+  font-weight: 400;
 }
 .vision__inner {
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: clamp(80px, 10vw, 140px) var(--pad);
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(80px, 10vw, 140px) var(--pad);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(32px, 4.5vw, 56px);
 }
 .vision__label {
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: rgba(250, 246, 239, 0.45);
-    margin-bottom: 40px;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 239, 0.45);
+  white-space: nowrap;
+  margin-bottom: 0;
 }
 .vision__title {
-    font-family: var(--font-display);
-    font-weight: 400;
-    font-size: clamp(32px, 4.5vw, 64px);
-    line-height: 1.15;
-    letter-spacing: -0.02em;
-    color: var(--paper);
-    margin-bottom: 32px;
-    max-width: 700px;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(32px, 4.2vw, 58px);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  margin-bottom: 0;
 }
 .vision__title-em {
-    font-style: italic;
-    color: var(--gold);
+  font-style: italic;
+  color: var(--gold);
 }
 .vision__body {
-    font-family: var(--font-body);
-    font-size: 1rem;
-    line-height: 1.75;
-    color: rgba(250, 246, 239, 0.6);
-    max-width: 480px;
-    margin-bottom: 40px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: rgba(250, 246, 239, 0.6);
+  max-width: 480px;
+  margin-bottom: 0;
 }
 .vision__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    font-family: var(--font-body);
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--gold);
-    text-decoration: none;
-    transition: color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--paper);
+  text-decoration: none;
+  background: rgba(214, 167, 122, 0.18);
+  border: 1px solid rgba(214, 167, 122, 0.4);
+  padding: 14px 32px;
+  letter-spacing: 0.03em;
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease,
+    transform 0.2s ease;
 }
-.vision__cta:hover { color: var(--paper); }
+.vision__cta:hover {
+  background: var(--gold);
+  color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(214, 167, 122, 0.35);
+}

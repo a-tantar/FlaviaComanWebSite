@@ -5,10 +5,103 @@
   right: 0;
   z-index: 100;
   background: var(--header-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid transparent;
-  transition: border-color 0.3s ease;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.header--scrolled {
+  border-bottom-color: var(--rule);
+  box-shadow: 0 2px 24px rgba(26, 22, 19, 0.06);
+}
+
+.header__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--pad);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.header__logo {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.01em;
+  color: var(--ink);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.header__nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.header__nav-link {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--ink-soft);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.header__nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--bordeaux);
+  transition: width 0.25s ease;
+}
+
+.header__nav-link:hover {
+  color: var(--ink);
+}
+
+.header__nav-link:hover::after {
+  width: 100%;
+}
+
+.header__cta {
+  flex-shrink: 0;
+  background: var(--bordeaux) !important;
+  color: #fff !important;
+  border-color: var(--bordeaux) !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.04em !important;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease !important;
+}
+
+.header__cta:hover {
+  background: var(--bordeaux-deep) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 16px rgba(140, 47, 57, 0.3) !important;
+}
+
+@media (max-width: 768px) {
+  .header__nav {
+    display: none;
+  }
+
+  .header__inner {
+    padding: 0 20px;
+  }
 }
 
 .header--scrolled {
